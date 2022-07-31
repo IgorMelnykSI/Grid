@@ -34,6 +34,7 @@ public class BaseUnit : MonoBehaviour
     }
 
     public void PlayFireAnimation(){
-        animator.SetBool("Fire", true);
+        //animator.SetBool("Fire", true);
+        animator.SetTrigger("FireTrigger");
     }
 }
