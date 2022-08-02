@@ -41,4 +41,10 @@ public class MenuManager : MonoBehaviour
         }
         _unitInterface.SetActive(true);
     }
+
+    public void HideInterface(){
+        _tileObject.SetActive(false);
+        _unitInterface.SetActive(false);
+        _selectedUnitObject.SetActive(false);
+    }
 }

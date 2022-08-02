@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
             case GameState.HerosTurn:
                 break;
             case GameState.EnemiesTurn:
+                GameState = GameState.HerosTurn; // On revient directement sur le tour du héro 
                 break;
             default:
                 Debug.Log("Out of range Exception");
@@ -41,6 +42,12 @@ public class GameManager : MonoBehaviour
                 //throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
     }
+
+    public void NextTurn(){
+        MenuManager.Instance.HideInterface();
+        ChangeState(GameState.EnemiesTurn);
+    }
+
 }
 
 public enum GameState
