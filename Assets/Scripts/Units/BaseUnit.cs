@@ -33,7 +33,7 @@ public class BaseUnit : MonoBehaviour
         return dammage;
     }
 
-    public void PlayFireAnimation(){
+    public virtual void PlayFireAnimation(){
         //animator.SetBool("Fire", true);
         animator.SetTrigger("FireTrigger");
     }
