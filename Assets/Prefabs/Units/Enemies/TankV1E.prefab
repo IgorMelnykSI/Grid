@@ -141,6 +141,7 @@ MonoBehaviour:
   movePoint: {x: 0, y: 0, z: 0}
   moveSpeed: 25
   explosion: {fileID: 4560264621551111485, guid: a3a686c5cee644672917477e49600531, type: 3}
+  impact: {fileID: 564916828276178689}
 --- !u!1001 &158595789706729097
 PrefabInstance:
   m_ObjectHideFlags: 0

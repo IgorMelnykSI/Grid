@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class Explode : MonoBehaviour
 {
-    public ParticleSystem exploision;
-
+   
     public void Start()
     {
-     var exp = Instantiate(exploision);
-     exp.Play();
-     exp.transform.parent = gameObject.transform;
-     Destroy(gameObject, exp.duration);
-      
+        var exp = GetComponent<ParticleSystem>();
+        exp.Play();
+        Destroy(gameObject, exp.duration);
     }
+
 }

@@ -15,7 +15,7 @@ public class Enemy1 : BaseEnemy
     public override void PlayImpactAnimation()
     {
         Instantiate(explosion, impactPoint.position, impactPoint.rotation);
-        Debug.Log("Impact position :" + impactPoint.position);
+        Debug.Log("Impact position :" + this.impactPoint.position);
     }
 
 }
