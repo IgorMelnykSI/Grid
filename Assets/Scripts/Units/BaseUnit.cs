@@ -15,6 +15,7 @@ public class BaseUnit : MonoBehaviour
     public Animator animator;
 
     protected int dammage = 0;
+    public Transform impactPoint;
 
     public Vector3 movePoint;
     public float moveSpeed = 25f;
@@ -36,5 +37,10 @@ public class BaseUnit : MonoBehaviour
     public virtual void PlayFireAnimation(){
         //animator.SetBool("Fire", true);
         animator.SetTrigger("FireTrigger");
+    }
+
+    public virtual void PlayImpactAnimation()
+    {
+
     }
 }

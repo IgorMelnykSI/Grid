@@ -31,6 +31,7 @@ public abstract class Tile : MonoBehaviour
             // Attack
             if (UnitManager.Instance.SelectedHero != null && UnitManager.Instance.AttackButton == true){
                 OccupiedUnit.TakeDammage(UnitManager.Instance.SelectedHero.GetUnitDammage());
+                OccupiedUnit.PlayImpactAnimation();
                 UnitManager.Instance.AttackButton = false;
                 Debug.Log("unit : " + OccupiedUnit + " will take " + UnitManager.Instance.SelectedHero.GetUnitDammage());
                 UnitManager.Instance.SelectedHero.PlayFireAnimation();
