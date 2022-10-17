@@ -25,6 +25,7 @@ public class UnitManager : MonoBehaviour
         for (int i = 0; i<enemiesCount; i++){
             var randomPrefab = GetRandomUnit<BaseEnemy>(Faction.Enemy);
             var spawnedEnemy = Instantiate(randomPrefab);
+            spawnedEnemy.transform.Rotate(0f, 180f, 0f); // Mirror rotation of enemies
             var randomSpawnedTile = GridManager.Instance.GetEnemySpawnTile();
 
             randomSpawnedTile.SetUnit(spawnedEnemy);
