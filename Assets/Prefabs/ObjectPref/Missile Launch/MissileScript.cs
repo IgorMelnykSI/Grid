@@ -10,8 +10,8 @@ public class MissileScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.Rotate(0, 0, 30);
-        body.rotation = 30f;
+        transform.Rotate(0, 0, 50);
+        body.rotation = 50f;
         body.velocity = transform.right * speed;
         Destroy(gameObject, 2);
     }

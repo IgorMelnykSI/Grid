@@ -5,6 +5,9 @@ using UnityEngine;
 public class MLRS : BaseHero
 {
     private const int DAMMAGE = 60; // Damagge of this precise unit
+
+    public Transform launchPoint; // From where it will be launched
+    public GameObject missileObject; // Misssile that will be launched
     
     void Start()
     {
@@ -18,6 +21,7 @@ public class MLRS : BaseHero
     {
         //animator.SetBool("Fire", true);
         animator.SetTrigger("SelectionTrigger");
+        Instantiate(missileObject, launchPoint.position, launchPoint.rotation);
     }
 
 }
