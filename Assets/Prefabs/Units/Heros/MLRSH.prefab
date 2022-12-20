@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1855193702964580546}
   - component: {fileID: 6968079590572278851}
   - component: {fileID: 2557397795588551503}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MLRSH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: c1cf1450d5ea04b0d85819d2d8790aa8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -188,7 +188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2183147245806951793}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerMovePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5766457796739988103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.84, y: 1.01, z: -0.01}
+  m_LocalPosition: {x: -2.84, y: 1.01, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -252,6 +252,14 @@ PrefabInstance:
       propertyPath: m_Value
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 4669328409553847346, guid: 42435173a27cb423a91faaacb69b0d56, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669328409772032030, guid: 42435173a27cb423a91faaacb69b0d56, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4669328409772032031, guid: 42435173a27cb423a91faaacb69b0d56, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -267,6 +275,10 @@ PrefabInstance:
     - target: {fileID: 4669328410314532039, guid: 42435173a27cb423a91faaacb69b0d56, type: 3}
       propertyPath: m_Name
       value: Life
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669328410314532039, guid: 42435173a27cb423a91faaacb69b0d56, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4669328410314532043, guid: 42435173a27cb423a91faaacb69b0d56, type: 3}
       propertyPath: m_Pivot.x
