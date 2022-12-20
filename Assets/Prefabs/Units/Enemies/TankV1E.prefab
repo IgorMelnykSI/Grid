@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 2525552112653081558}
   - component: {fileID: 5901311863744440364}
   - component: {fileID: 7205823789516369907}
+  - component: {fileID: 500694442599902292}
   m_Layer: 0
   m_Name: TankV1E
   m_TagString: Untagged
@@ -141,7 +142,32 @@ MonoBehaviour:
   movePoint: {x: 0, y: 0, z: 0}
   moveSpeed: 25
   explosion: {fileID: 4560264621551111485, guid: a3a686c5cee644672917477e49600531, type: 3}
-  impact: {fileID: 564916828276178689}
+--- !u!61 &500694442599902292
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700668222003611528}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.3, y: 6.3}
+    newSize: {x: 6.3, y: 6.3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5, y: 2}
+  m_EdgeRadius: 0
 --- !u!1001 &158595789706729097
 PrefabInstance:
   m_ObjectHideFlags: 0

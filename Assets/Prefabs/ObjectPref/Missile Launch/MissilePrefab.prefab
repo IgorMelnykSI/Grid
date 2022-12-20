@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2728439176303848986}
   - component: {fileID: 2728439176303848989}
   - component: {fileID: 2728439176303848988}
+  - component: {fileID: 686681065211374639}
   m_Layer: 0
   m_Name: MissilePrefab
   m_TagString: Untagged
@@ -122,6 +123,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &686681065211374639
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2728439176303848985}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 1.06}
+    newSize: {x: 5.12, y: 1.06}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.7, y: 0.7}
+  m_EdgeRadius: 0
 --- !u!1001 &2631467789337287393
 PrefabInstance:
   m_ObjectHideFlags: 0

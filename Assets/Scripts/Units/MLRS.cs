@@ -17,11 +17,12 @@ public class MLRS : BaseHero
         this.dammage = DAMMAGE;
     }
 
-    public override void PlayFireAnimation()
+    public override void PlayFireAnimation(Transform target)
     {
         //animator.SetBool("Fire", true);
         animator.SetTrigger("SelectionTrigger");
-        Instantiate(missileObject, launchPoint.position, launchPoint.rotation);
+        GameObject missile = Instantiate(missileObject, launchPoint.position, launchPoint.rotation);
+        missile.GetComponent<MissileScript>().SetTarget(target);
     }
 
 }
