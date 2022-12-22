@@ -29,12 +29,21 @@ public abstract class Tile : MonoBehaviour
                 UnitManager.Instance.SetSelectedHero(OccupiedUnit);
             }
             // Attack
-            if (UnitManager.Instance.SelectedHero != null && UnitManager.Instance.AttackButton == true){
+            if (UnitManager.Instance.SelectedHero != null && UnitManager.Instance.AttackButton == true)
+            {
                 UnitManager.Instance.AttackButton = false;
+                if (UnitManager.Instance.SelectedHero.actionPoints < 3)
+                {
+                    Debug.Log("Unit hasn't enough points to Attack");
+                    disableUI();
+                    return;
+                }
                 Debug.Log("unit : " + OccupiedUnit + " will take " + UnitManager.Instance.SelectedHero.GetUnitDammage());
+                // Use of fire action points
+                UnitManager.Instance.SelectedHero.actionPoints -= 3;
                 UnitManager.Instance.SelectedHero.PlayFireAnimation(OccupiedUnit.transform);
                 OccupiedUnit.TakeDammage(UnitManager.Instance.SelectedHero.GetUnitDammage());
-                OccupiedUnit.PlayImpactAnimation();
+                //OccupiedUnit.PlayImpactAnimation();
             }
         } else {
             // Move
@@ -73,5 +82,12 @@ public abstract class Tile : MonoBehaviour
         
         OccupiedUnit = unit;
         unit.OccupiedTile = this;
+    }
+
+    // switch off UI after an action
+    private void disableUI()
+    {
+        UnitManager.Instance.SetSelectedHero(null);
+        MenuManager.Instance.ShowUnitInterface(null);
     }
 }

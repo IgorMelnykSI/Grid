@@ -8,6 +8,11 @@ public class MissileScript : MonoBehaviour
     public Rigidbody2D body;
     private Transform target;
 
+    private float timer = 0.0f;
+    private float waitTime = 0.5f;
+
+    public GameObject _explosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +20,25 @@ public class MissileScript : MonoBehaviour
         body.rotation = 53f;
         body.velocity = transform.right * speed;
         //Destroy(gameObject, 2);
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+
+        if (timer > waitTime && target != null)
+        {
+            float offsetX = -12.0f;
+            float offsetY = 12.0f;
+
+            Debug.Log("Target position: " + target.position.x + " , " + target.position.y);
+            transform.position = new Vector3(target.position.x + offsetX, target.position.y + offsetY, 0);
+            transform.Rotate(0, 0, -90);
+            body.rotation = -90f;
+            body.velocity = transform.right * speed;
+            //Destroy(gameObject, 3);
+            timer = timer - waitTime - 1f;
+        }
     }
 
     public void SetTarget(Transform target)
@@ -31,6 +55,7 @@ public class MissileScript : MonoBehaviour
             if (targetPos == target)
             {
                 Destroy(gameObject);
+                Instantiate(_explosion, targetPos.position, targetPos.rotation);
             }
         }
     }

@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     public void NextTurn(){
         MenuManager.Instance.HideInterface();
         ChangeState(GameState.EnemiesTurn);
+        UnitManager.Instance.reInitialiseActionPoints();
     }
 
 }

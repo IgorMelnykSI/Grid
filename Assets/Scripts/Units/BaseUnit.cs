@@ -20,6 +20,8 @@ public class BaseUnit : MonoBehaviour
     public Vector3 movePoint;
     public float moveSpeed = 25f;
 
+    public int actionPoints = 6;
+
     void Update() {
         transform.position = Vector3.MoveTowards( transform.position , movePoint, moveSpeed*Time.deltaTime);
     }

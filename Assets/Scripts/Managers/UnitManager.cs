@@ -11,11 +11,14 @@ public class UnitManager : MonoBehaviour
     public bool MoveButton = false;
     public bool AttackButton = false;
 
+    private List<BaseUnit> spawnedUnits;
+
     void Awake() {
         Instance = this;
 
         _units = Resources.LoadAll<ScriptableUnit>("Units").ToList();
-         
+
+        spawnedUnits = new List<BaseUnit>();
     }
 
     public void SpawnEnemies() 
@@ -25,6 +28,7 @@ public class UnitManager : MonoBehaviour
         for (int i = 0; i<enemiesCount; i++){
             var randomPrefab = GetRandomUnit<BaseEnemy>(Faction.Enemy);
             var spawnedEnemy = Instantiate(randomPrefab);
+            spawnedUnits.Add(spawnedEnemy);
             spawnedEnemy.transform.Rotate(0f, 180f, 0f); // Mirror rotation of enemies
             var randomSpawnedTile = GridManager.Instance.GetEnemySpawnTile();
 
@@ -35,7 +39,7 @@ public class UnitManager : MonoBehaviour
     }
 
     public void SpawnHeros(){
-        var herosCount = 1;
+        var herosCount = 2;
 
         for (int i = 0; i<herosCount; i++){
             var randomPrefab = GetRandomUnit<BaseHero>(Faction.Hero);
@@ -43,6 +47,8 @@ public class UnitManager : MonoBehaviour
             var randomSpawnedTile = GridManager.Instance.GetHeroSpawnTile();
 
             randomSpawnedTile.SetUnit(spawnedHero);
+
+            spawnedUnits.Add(spawnedHero);
         }
         // Game State
         GameManager.Instance.ChangeState(GameState.SpawnEnemies);
@@ -60,6 +66,17 @@ public class UnitManager : MonoBehaviour
         }
         SelectedHero = hero;
         MenuManager.Instance.ShowSelectedUnit(hero);
+    }
+
+    public void reInitialiseActionPoints()
+    {
+        foreach (BaseUnit unit in spawnedUnits)
+        {
+            if (unit != null)
+            {
+                unit.actionPoints = 6;
+            }
+        }
     }
 
     public void ActivateMove(){
