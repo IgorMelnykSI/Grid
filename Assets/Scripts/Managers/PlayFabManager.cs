@@ -5,9 +5,11 @@ using PlayFab;
 using PlayFab.ClientModels;
 using System;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayFabManager : MonoBehaviour
 {
+    // Login Screen
     public Text messageText;
     public Text messageRegText;
     public InputField mailInput;
@@ -16,6 +18,16 @@ public class PlayFabManager : MonoBehaviour
     public InputField mailRegInput;
     public InputField passwordRegInput;
     public InputField userName;
+
+    // Player Info
+
+
+    public static PlayFabManager Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     public void RegisterButton()
     {
@@ -39,6 +51,8 @@ public class PlayFabManager : MonoBehaviour
     private void OnRegisterSucces(RegisterPlayFabUserResult obj)
     {
         messageRegText.text = "Registered and Logged in";
+        // Changing of scene
+        SceneManager.LoadScene(2);
     }
 
     public void LoginButton()
@@ -53,7 +67,9 @@ public class PlayFabManager : MonoBehaviour
 
     private void OnLoginSucces(LoginResult result)
     {
-        messageText.text = "logged in!"; 
+        messageText.text = "logged in!";
+        // Changing of scene
+        SceneManager.LoadScene(2);
     }
 
     public void ResetPasswordButton()
