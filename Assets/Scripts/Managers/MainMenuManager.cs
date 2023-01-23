@@ -34,14 +34,15 @@ public class MainMenuManager : MonoBehaviour
     void OnGetUserInventorySucces(GetUserInventoryResult result)
     {
         int silver = result.VirtualCurrency["SL"];
-        SilverValue.text = silver.ToString();
+        SilverValue.SetText(silver.ToString());
 
         int gold = result.VirtualCurrency["GD"];
-        GoldValue.text = gold.ToString();
+        GoldValue.SetText(gold.ToString());
     }
 
     void OnError(PlayFabError error)
     {
         // Error to retrieve data
+        Debug.Log("Data recuperation error !!!");
     }
 }
