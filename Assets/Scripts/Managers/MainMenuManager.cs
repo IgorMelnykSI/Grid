@@ -8,15 +8,20 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
+    public static MainMenuManager Instance;
 
+    // Player currencies data
     public TMP_Text GoldValue;
     public TMP_Text SilverValue;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        //GoldValue.text = PlayFabManager.Instance.messageRegText.text;
-        // Get currencies data
         GetVirtualsCurrencies();
     }
 
