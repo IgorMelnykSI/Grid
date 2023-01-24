@@ -7,6 +7,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameState GameState;
 
+    // default faction or current player faction (à voir si utile)
+    public Faction PlayerFaction = Faction.Hero;
+    // Faction of current playing player
+    public Faction TurnFaction = Faction.Hero;
+
     void Awake()
     {
         Instance = this;
@@ -32,9 +37,12 @@ public class GameManager : MonoBehaviour
                 UnitManager.Instance.SpawnEnemies();
                 break;
             case GameState.HerosTurn:
+                TurnFaction = Faction.Hero;
                 break;
             case GameState.EnemiesTurn:
-                GameState = GameState.HerosTurn; // On revient directement sur le tour du héro 
+                TurnFaction = Faction.Enemy;
+                PlayerFaction = Faction.Enemy; // simulation of online or local multiplayer !!
+                //GameState = GameState.HerosTurn; // On revient directement sur le tour du héro 
                 break;
             default:
                 Debug.Log("Out of range Exception");

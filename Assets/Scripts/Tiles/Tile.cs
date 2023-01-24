@@ -22,10 +22,11 @@ public abstract class Tile : MonoBehaviour
 
     // When Tile is clicked
     void OnMouseDown(){
-        if (GameManager.Instance.GameState != GameState.HerosTurn) return;
+        if (GameManager.Instance.TurnFaction != GameManager.Instance.PlayerFaction) return;
 
         if (OccupiedUnit != null){
-            if (OccupiedUnit.Faction == Faction.Hero){
+            if (OccupiedUnit.Faction == GameManager.Instance.PlayerFaction)
+            {
                 UnitManager.Instance.SetSelectedHero(OccupiedUnit);
             }
             // Attack
@@ -70,8 +71,8 @@ public abstract class Tile : MonoBehaviour
             unit.OccupiedTile.OccupiedUnit = null;
         }
         //Deplacement
-        if (GameManager.Instance.GameState == GameState.HerosTurn){
-
+        if (GameManager.Instance.TurnFaction == GameManager.Instance.PlayerFaction)
+        {
             Debug.Log("Actual pos : " + unit.transform.position);
             Debug.Log("Next pos : " + transform.position);
             unit.movePoint = transform.position;

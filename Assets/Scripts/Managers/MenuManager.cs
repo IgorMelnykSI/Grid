@@ -32,7 +32,7 @@ public class MenuManager : MonoBehaviour
     }
 
     public void ShowUnitInterface(BaseUnit unit) {
-        if (unit == null || unit.Faction == Faction.Enemy){
+        if (unit == null || unit.Faction != GameManager.Instance.PlayerFaction){
             if (unit != null) {
                 Debug.Log("selected unit : " + unit.Faction);
             }
