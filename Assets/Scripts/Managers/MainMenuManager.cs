@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using PlayFab;
 using PlayFab.ClientModels;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
@@ -13,6 +12,9 @@ public class MainMenuManager : MonoBehaviour
     // Player currencies data
     public TMP_Text GoldValue;
     public TMP_Text SilverValue;
+
+    public GameMode gameMode; // default
+    public Faction playerFaction;
 
     private void Awake()
     {
@@ -49,5 +51,18 @@ public class MainMenuManager : MonoBehaviour
     {
         // Error to retrieve data
         Debug.Log("Data recuperation error !!!");
+    }
+
+    public void MultiplayerGame()
+    {
+        gameMode = GameMode.Multi;
+        SceneManager.LoadScene("Loading");
+    }
+
+    public enum GameMode
+    {
+        Single = 0,
+        Multi = 1,
+        Local = 2
     }
 }

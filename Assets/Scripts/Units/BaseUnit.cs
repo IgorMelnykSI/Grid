@@ -1,12 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class BaseUnit : MonoBehaviour
 {
     public string UnitName;
     public Tile OccupiedTile;
     public Faction Faction;
+
+    // for Online
+    public Boolean viewIsMine = false;
 
     public HeralthBarScript healthBar;
     public int maxHealth = 100;
@@ -23,7 +28,10 @@ public class BaseUnit : MonoBehaviour
     public int actionPoints = 6;
 
     void Update() {
-        transform.position = Vector3.MoveTowards( transform.position , movePoint, moveSpeed*Time.deltaTime);
+        if (viewIsMine)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, movePoint, moveSpeed * Time.deltaTime);
+        }
     }
 
     public void TakeDammage(int dammage)
@@ -45,4 +53,5 @@ public class BaseUnit : MonoBehaviour
     {
 
     }
+
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Photon.Pun;
 
 public class UnitManager : MonoBehaviour
 {
@@ -49,6 +50,24 @@ public class UnitManager : MonoBehaviour
             randomSpawnedTile.SetUnit(spawnedHero);
 
             spawnedUnits.Add(spawnedHero);
+        }
+        // Game State
+        GameManager.Instance.ChangeState(GameState.SpawnEnemies);
+    }
+
+    public void SpawnHerosOnline()
+    {
+        var herosCount = 2;
+
+        for (int i = 0; i < herosCount; i++)
+        {
+            var randomPrefab = GetRandomUnit<BaseHero>(Faction.Hero);
+            var spawnedHero = PhotonNetwork.Instantiate(randomPrefab.name, new Vector3( 0, 0), Quaternion.identity);
+            var randomSpawnedTile = GridManager.Instance.GetHeroSpawnTile();
+            spawnedHero.GetComponent<BaseUnit>().viewIsMine = true;
+            randomSpawnedTile.SetUnit(spawnedHero.GetComponent<BaseUnit>());
+
+            spawnedUnits.Add(spawnedHero.GetComponent<BaseUnit>());
         }
         // Game State
         GameManager.Instance.ChangeState(GameState.SpawnEnemies);
