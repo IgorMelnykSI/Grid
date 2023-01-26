@@ -62,6 +62,7 @@ public class UnitManager : MonoBehaviour
         for (int i = 0; i < herosCount; i++)
         {
             var randomPrefab = GetRandomUnit<BaseHero>(Faction.Hero);
+            //string accesPath = "Units/" + randomPrefab.name;
             var spawnedHero = PhotonNetwork.Instantiate(randomPrefab.name, new Vector3( 0, 0), Quaternion.identity);
             var randomSpawnedTile = GridManager.Instance.GetHeroSpawnTile();
             spawnedHero.GetComponent<BaseUnit>().viewIsMine = true;

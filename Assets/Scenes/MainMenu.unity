@@ -641,6 +641,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GoldValue: {fileID: 1517641065}
   SilverValue: {fileID: 626525662}
+  gameMode: 0
+  playerFaction: 0
 --- !u!1 &1070047045
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,6 +898,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GoldValue: {fileID: 0}
   SilverValue: {fileID: 0}
+  gameMode: 0
+  playerFaction: 0
 --- !u!1 &1157377805
 GameObject:
   m_ObjectHideFlags: 0

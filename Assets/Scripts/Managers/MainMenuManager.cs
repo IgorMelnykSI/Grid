@@ -27,12 +27,6 @@ public class MainMenuManager : MonoBehaviour
         GetVirtualsCurrencies();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void GetVirtualsCurrencies()
     {
         PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), OnGetUserInventorySucces, OnError);
